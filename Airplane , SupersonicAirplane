@@ -1,0 +1,54 @@
+package chapter01;
+
+public class Airplane {
+
+		void land() {
+			System.out.println("착륙합니다.");
+		}
+		void fly() {
+			System.out.println("일반 비행합니다.");
+		}
+		void takeOff() {
+			System.out.println("이륙합니다.");
+		}
+}
+
+package chapter01;
+
+public class SupersonicAirplane extends Airplane {
+
+	public static final int NOMAL = 1;	// 일반모드
+	public static final int SUPER_SONIC = 2;	//초음속 모드
+	
+	public int flyMode = NOMAL;
+	
+	@Override
+	void fly() {
+		if(flyMode == SUPER_SONIC) {
+			System.out.println("초음속 비행합니다.");
+		}else {
+			super.fly();
+			}
+		}
+	@Override
+	void takeOff() {
+		super.takeOff();
+	}
+	@Override
+	void land() {
+		super.land();
+	}
+}
+
+package chapter01;
+
+public class AirplaneMain {
+
+	public static void main(String[] args) {
+		
+		SupersonicAirplane sa = new SupersonicAirplane();
+		sa.flyMode =SupersonicAirplane.SUPER_SONIC;
+		sa.fly();
+	}
+}
+
